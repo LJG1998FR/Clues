@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr" class="notranslate" translate="no">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clues</title>
+    <link rel="stylesheet" href="src/styles.css">
+</head>
+<body>
+    <h1 class="title">Clues</h1>
+    <!-- <button id="cpuTurnButton" onclick="cpuTurn(3);">Simulate Turn</button> -->
+    <main id="main">
+        <section id="otherPlayersContainer">
+        </section>
+
+        <section id="currentPlayerContainer">
+            <div class="cardContainer" id="player_cardContainer">
+                <form id="playerTheory">
+                    <select name="suspect" id="suspect">
+                        <option value="Avatar1">Avatar1</option>
+                        <option value="Avatar2">Avatar2</option>
+                        <option value="Avatar3">Avatar3</option>
+                        <option value="Avatar4">Avatar4</option>
+                        <option value="Avatar5">Avatar5</option>
+                        <option value="Avatar6">Avatar6</option>
+                    </select>
+                    <select name="action" id="action">
+                        <option value="Arme1">Arme1</option>
+                        <option value="Arme2">Arme2</option>
+                        <option value="Arme3">Arme3</option>
+                        <option value="Arme4">Arme4</option>
+                        <option value="Arme5">Arme5</option>
+                        <option value="Arme6">Arme6</option>
+                    </select>
+                    <select name="room" id="room">
+                        <option value="Kitchen">Kitchen</option>
+                        <option value="Dining Room">Dining Room</option>
+                        <option value="Bedroom">Bedroom</option>
+                        <option value="Bathroom">Bathroom</option>
+                        <option value="Living Room">Living Room</option>
+                        <option value="Study">Study</option>
+                        <option value="Library">Library</option>
+                        <option value="Lounge">Lounge</option>
+                        <option value="Hall">Hall</option>
+                    </select>
+                    <button type="submit">OK</button>
+                </form>
+            </div>
+        </section>
+    </main>
+    <script src="src/main.ts"></script>
+</body>
+</html>

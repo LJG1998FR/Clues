@@ -1,0 +1,28 @@
+body {
+  background-color: #ddd;
+}
+
+.title{
+  text-align: center;
+}
+
+#otherPlayersContainer{
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 100px;
+}
+
+#currentPlayerContainer{
+  display: flex;
+  justify-content: center;
+}
+
+.cardContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#player_cardContainer{
+  margin: 20%;
+}
