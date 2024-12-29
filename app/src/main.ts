@@ -1,3 +1,5 @@
+import { revealCardAnimation } from "./animations";
+
 var suspectCards = ['Avatar1', 'Avatar2', 'Avatar3', 'Avatar4', 'Avatar5', 'Avatar6'];
 var actionCards = ['Arme1', 'Arme2', 'Arme3', 'Arme4', 'Arme5', 'Arme6'];
 var roomCards = ['Kitchen', 'Dining Room', 'Bedroom', 'Bathroom', 'Living Room', 'Study', 'Library', 'Lounge', 'Hall'];
@@ -59,21 +61,11 @@ var selectedAction:string = actionCards[0];
 
 //console.log("mysteryCards:", mysteryCards);
 
+console.log(cpuCards);
+
 
 // init game
 function gameInit() {
-    var otherPlayersContainer:HTMLElement = <HTMLElement>document.getElementById('otherPlayersContainer');
-    for (let k = 1; k < numberofPlayers; k++) {
-        var id = 'cpuHand';
-        otherPlayersContainer.innerHTML += `
-            <section class="cardContainer" id="${id}Container_${k}">
-                <p class="emote" id="emote_${id}_${k}"></p>
-            </section>`;
-        for (let l = 0; l < cpuCards[k-1].length; l++) {
-            let container:HTMLElement = <HTMLElement>document.getElementById(id+'Container_'+k);
-            container.innerHTML += `<span id="${id}${k}_card${l+1}">???</span>`;
-        }
-    }
 
     for (let i = 0; i < playerCards.length; i++) {
         let player_cardContainer:HTMLElement = <HTMLElement>document.getElementById('player_cardContainer');
@@ -90,20 +82,20 @@ function initPlayerTurn() {
     var suspect:HTMLSelectElement = <HTMLSelectElement>document.getElementById('suspect');
     var room:HTMLSelectElement = <HTMLSelectElement>document.getElementById('room');
     var action:HTMLSelectElement = <HTMLSelectElement>document.getElementById('action');
-    playerTheory.addEventListener('submit', (e) => checkTheory(e, [selectedSuspect, selectedAction, selectedRoom], cpuCards, true));
+    playerTheory.addEventListener('submit', (e) => checkTheory([selectedSuspect, selectedAction, selectedRoom], cpuCards, true, e));
 
-    suspect.addEventListener('change', function(e){
+    suspect.addEventListener('change', function(){
         selectedSuspect = suspect.value;
     })
-    room.addEventListener('change', function(e){
+    room.addEventListener('change', function(){
         selectedRoom = room.value;
     })
-    action.addEventListener('change', function(e){
+    action.addEventListener('change', function(){
         selectedAction = action.value;
     })
 }
 
-function cpuTurn(cpuIndex:number) {
+/*function cpuTurn(cpuIndex:number) {
 
     var cardsArray:string[][] = [];
     let v = cpuIndex+1;
@@ -128,64 +120,45 @@ function cpuTurn(cpuIndex:number) {
     console.log(`CPU ${cpuIndex+1} choice:`+cpuChoice);
 
     checkTheory(null, [selectedcpuSuspect, selectedcpuAction, selectedcpuRoom], cardsArray, false);
-}
+}*/
 
 // check current player theory, stops at the first found match
-function checkTheory(e:Event|null, submittedTheory:string[] = [selectedSuspect, selectedAction, selectedRoom], haystack:string[][], isPlayer:boolean){
+function checkTheory(submittedTheory:string[] = [selectedSuspect, selectedAction, selectedRoom], haystack:string[][], isPlayer:boolean, e?:Event){
 
-    resetTurn();
     if(e){
-        e.preventDefault();
+      e.preventDefault();
     }
 
     var foundMatch:boolean = false;
     loop1:
     for (let i = 0; i < haystack.length; i++) {
         let cpuHand = haystack[i];
-        let emote:HTMLParagraphElement = <HTMLParagraphElement>document.getElementById(`emote_cpuHand_${i+1}`);
         for (let j = 0; j < cpuHand.length; j++) {
             if(submittedTheory.includes(haystack[i][j])){
                 foundMatch = true;
                 
                 if(isPlayer){
-                    emote.innerHTML = "✅";
-                    //alert('Player '+(i+1)+' has at least this card: '+haystack[i][j]);
-                    let cardToReveal:HTMLSpanElement = <HTMLSpanElement>document.getElementById('cpuHand'+(i+1)+'_card'+(j+1));
-                    cardToReveal.innerHTML = haystack[i][j];
+                    let labelToReveal:HTMLSpanElement = <HTMLSpanElement>document.getElementById('cpuHand'+(i+1)+'_card'+(j+1)+'_clear');
+                    labelToReveal.innerHTML = haystack[i][j];
+
+                    revealCardAnimation('cpuHand'+(i+1)+'_card'+(j+1));
                 }else{
                     if (cpuHand === playerCards) {
                         //alert('You have at least one card: '+ haystack[i][j]);
                     } else {
-                        emote.innerHTML = "✅";
                         alert('Player '+(i+1)+' has at least one card.');
                     }
                 }
                 break loop1;
             }
-        }
-       
-        if (cpuHand === playerCards) {
-            //alert('You do not have any of these cards');
-        } else {
-            emote.innerHTML = "❌";
-            //alert('Player '+(i+1)+' does not have any of these cards');
-        }   
+        } 
     }
 
     if(foundMatch == false){
-        alert('No matches found with these cards');
+      alert('No matches found with these cards');
     }
 
     return foundMatch;
-}
-
-//clean all ✅ and ❌
-function resetTurn(){
-    var emotes = document.querySelectorAll('.emote');
-    //console.log(emotes)
-    emotes.forEach(emote => {
-        emote.innerHTML = "";
-    });
 }
 
 gameInit();

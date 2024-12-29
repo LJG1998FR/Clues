@@ -5,13 +5,214 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clues</title>
-    <link rel="stylesheet" href="src/styles.css">
+    <link rel="stylesheet" href="src/styles.scss">
+    <script src="src/main.ts" type="module"></script>
 </head>
 <body>
     <h1 class="title">Clues</h1>
     <!-- <button id="cpuTurnButton" onclick="cpuTurn(3);">Simulate Turn</button> -->
     <main id="main">
         <section id="otherPlayersContainer">
+            <section class="cardContainer" id="cpuHandContainer_1">
+                <div class="flip-card" id="cpuHand1_card1">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <p class="title">Clues</p>
+                            <p>???</p>
+                        </div>
+                        <div class="flip-card-back">
+                            <p class="title">Clues</p>
+                            <p id="cpuHand1_card1_clear"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-card" id="cpuHand1_card2">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <p class="title">Clues</p>
+                            <p>???</p>
+                        </div>
+                        <div class="flip-card-back">
+                            <p class="title">Clues</p>
+                            <p id="cpuHand1_card2_clear"></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flip-card" id="cpuHand1_card3">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <p class="title">Clues</p>
+                            <p>???</p>
+                        </div>
+                        <div class="flip-card-back">
+                            <p class="title">Clues</p>
+                            <p id="cpuHand1_card3_clear"></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="cardContainer" id="cpuHandContainer_2">
+                <div class="flip-card" id="cpuHand2_card1">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <p class="title">Clues</p>
+                            <p>???</p>
+                        </div>
+                        <div class="flip-card-back">
+                            <p class="title">Clues</p>
+                            <p id="cpuHand2_card1_clear"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-card" id="cpuHand2_card2">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <p class="title">Clues</p>
+                            <p>???</p>
+                        </div>
+                        <div class="flip-card-back">
+                            <p class="title">Clues</p>
+                            <p id="cpuHand2_card2_clear"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-card" id="cpuHand2_card3">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <p class="title">Clues</p>
+                            <p>???</p>
+                        </div>
+                        <div class="flip-card-back">
+                            <p class="title">Clues</p>
+                            <p id="cpuHand2_card3_clear"></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="cardContainer" id="cpuHandContainer_3">
+                <div class="flip-card" id="cpuHand3_card1">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <p class="title">Clues</p>
+                            <p>???</p>
+                        </div>
+                        <div class="flip-card-back">
+                            <p class="title">Clues</p>
+                            <p id="cpuHand3_card1_clear"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-card" id="cpuHand3_card2">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <p class="title">Clues</p>
+                            <p>???</p>
+                        </div>
+                        <div class="flip-card-back">
+                            <p class="title">Clues</p>
+                            <p id="cpuHand3_card2_clear"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-card" id="cpuHand3_card3">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <p class="title">Clues</p>
+                            <p>???</p>
+                        </div>
+                        <div class="flip-card-back">
+                            <p class="title">Clues</p>
+                            <p id="cpuHand3_card3_clear"></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="cardContainer" id="cpuHandContainer_4">
+                <div class="flip-card" id="cpuHand4_card1">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <p class="title">Clues</p>
+                            <p>???</p>
+                        </div>
+                        <div class="flip-card-back">
+                            <p class="title">Clues</p>
+                            <p id="cpuHand4_card1_clear"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-card" id="cpuHand4_card2">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <p class="title">Clues</p>
+                            <p>???</p>
+                        </div>
+                        <div class="flip-card-back">
+                            <p class="title">Clues</p>
+                            <p id="cpuHand4_card2_clear"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-card" id="cpuHand4_card3">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <p class="title">Clues</p>
+                            <p>???</p>
+                        </div>
+                        <div class="flip-card-back">
+                            <p class="title">Clues</p>
+                            <p id="cpuHand4_card3_clear"></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="cardContainer" id="cpuHandContainer_5">
+                <div class="flip-card" id="cpuHand5_card1">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <p class="title">Clues</p>
+                            <p>???</p>
+                        </div>
+                        <div class="flip-card-back">
+                            <p class="title">Clues</p>
+                            <p id="cpuHand5_card1_clear"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-card" id="cpuHand5_card2">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <p class="title">Clues</p>
+                            <p>???</p>
+                        </div>
+                        <div class="flip-card-back">
+                            <p class="title">Clues</p>
+                            <p id="cpuHand5_card2_clear"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-card" id="cpuHand5_card3">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <p class="title">Clues</p>
+                            <p>???</p>
+                        </div>
+                        <div class="flip-card-back">
+                            <p class="title">Clues</p>
+                            <p id="cpuHand5_card3_clear"></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </section>
 
         <section id="currentPlayerContainer">
@@ -49,6 +250,5 @@
             </div>
         </section>
     </main>
-    <script src="src/main.ts"></script>
 </body>
 </html>
