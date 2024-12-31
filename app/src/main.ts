@@ -1,5 +1,6 @@
 import { revealCardAnimation } from "./animations";
 
+const mainDom = document.getElementById('main');
 var suspectCards = ['Avatar1', 'Avatar2', 'Avatar3', 'Avatar4', 'Avatar5', 'Avatar6'];
 var actionCards = ['Arme1', 'Arme2', 'Arme3', 'Arme4', 'Arme5', 'Arme6'];
 var roomCards = ['Kitchen', 'Dining Room', 'Bedroom', 'Bathroom', 'Living Room', 'Study', 'Library', 'Lounge', 'Hall'];
@@ -68,7 +69,7 @@ console.log(cpuCards);
 function gameInit() {
 
     for (let i = 0; i < playerCards.length; i++) {
-        let player_cardContainer:HTMLElement = <HTMLElement>document.getElementById('player_cardContainer');
+        let player_cardContainer = <HTMLElement>mainDom?.querySelector('.playerCards');
         player_cardContainer.innerHTML += `<span>${playerCards[i]}</span>`;
     }
 

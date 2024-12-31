@@ -10,7 +10,6 @@
 </head>
 <body>
     <h1 class="title">Clues</h1>
-    <!-- <button id="cpuTurnButton" onclick="cpuTurn(3);">Simulate Turn</button> -->
     <main id="main">
         <section id="otherPlayersContainer">
             <section class="cardContainer" id="cpuHandContainer_1">
@@ -217,8 +216,9 @@
 
         <section id="currentPlayerContainer">
             <div class="cardContainer" id="player_cardContainer">
-                <form id="playerTheory">
+                <form id="playerTheory" class="custom-dropdown big">
                     <select name="suspect" id="suspect">
+                        <option value="default" disabled selected>Choisissez un suspect</option>
                         <option value="Avatar1">Avatar1</option>
                         <option value="Avatar2">Avatar2</option>
                         <option value="Avatar3">Avatar3</option>
@@ -227,6 +227,7 @@
                         <option value="Avatar6">Avatar6</option>
                     </select>
                     <select name="action" id="action">
+                        <option value="default" disabled selected>Choisissez une arme</option>
                         <option value="Arme1">Arme1</option>
                         <option value="Arme2">Arme2</option>
                         <option value="Arme3">Arme3</option>
@@ -235,6 +236,7 @@
                         <option value="Arme6">Arme6</option>
                     </select>
                     <select name="room" id="room">
+                        <option value="default" disabled selected>Choisissez un lieu</option>
                         <option value="Kitchen">Kitchen</option>
                         <option value="Dining Room">Dining Room</option>
                         <option value="Bedroom">Bedroom</option>
@@ -246,6 +248,10 @@
                         <option value="Hall">Hall</option>
                     </select>
                     <button type="submit">OK</button>
+
+                    <section class="playerCards">
+                        <p>Vos cartes: </p>
+                    </section>
                 </form>
             </div>
         </section>

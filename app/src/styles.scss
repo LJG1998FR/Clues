@@ -30,6 +30,19 @@ body {
       height: 176px;
       perspective: 1000px;
       font-family: sans-serif;
+
+      &:first-child {
+        transform: rotateZ(-10deg) translate3d(10px, 10px, 10px);
+      }
+
+      &:last-child {
+        transform: rotateZ(10deg) translate3d(-10px, 13px, -10px);
+      }
+
+      &:hover {
+        z-index: 10;
+        transform: none;
+      }
     }
 
     .title {
@@ -48,9 +61,17 @@ body {
       transform-style: preserve-3d;
     }
 
-    /*.flip-card:hover .flip-card-inner {
-      transform: rotateY(180deg);
-    }*/
+    .flip-card:hover .flip-card-inner {
+      transform: scale(1.2);
+    }
+
+    .flip-card-back {
+      transition: transform 0.8s;
+    }
+
+    .flip-card-back:hover {
+      transform: scale(1.2) rotateY(180deg);
+    }
 
     .flip-card-front, .flip-card-back {
       box-shadow: 0 8px 14px 0 rgba(0,0,0,0.2);
@@ -86,4 +107,83 @@ body {
   display: flex;
   justify-content: center;
   margin-top: 100px;
+
+  .big {
+    font-size: 1.2em;
+  }
+  
+  .small {
+    font-size: .7em;
+  }
+  
+  .square {
+    width: .7em;
+    height: .7em;
+    margin: .5em;
+    display: inline-block;
+  }
+  
+  /* Custom dropdown */
+  .custom-dropdown {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  
+  .custom-dropdown select {
+    background-color: bisque;
+    color: coral;
+    font-size: inherit;
+    padding: .5em;
+    padding-right: 2.5em;	
+    border: 0;
+    margin: 0;
+    border-radius: 3px;
+    text-indent: 0.01px;
+    text-overflow: '';
+  }
+  
+  .custom-dropdown::before,
+  .custom-dropdown::after {
+    content: "";
+    position: absolute;
+    pointer-events: none;
+  }
+  
+  .custom-dropdown::before { /*  Custom dropdown arrow cover */
+    width: 2em;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    border-radius: 0 3px 3px 0;
+  }
+  
+  .custom-dropdown select[disabled] {
+    color: rgba(0,0,0,.3);
+  }
+  
+  .custom-dropdown select[disabled]::after {
+    color: rgba(0,0,0,.1);
+  }
+  
+  /*.custom-dropdown::before {
+    background-color: rgba(0,0,0,.15);
+  }*/
+  
+  .custom-dropdown::after {
+    color: rgba(0,0,0,.4);
+  }
+
+  button {
+    background-color: bisque;
+    color: coral;
+    border: none;
+    height: 40px;
+  }
+
+  .playerCards {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
 }
